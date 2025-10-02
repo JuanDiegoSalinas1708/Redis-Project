@@ -1,0 +1,274 @@
+:root {
+  --color-primary: #275a4b;       /* verde BillCash */
+  --color-secondary: #1b2a41;     /* azul oscuro BillCash */
+  --color-white: #ffffff;
+  --text-light: #f0f4f8;
+  --text-dark: #1b2a41;
+  --card-bg: rgba(255, 255, 255, 0.95);
+  --card-shadow: rgba(0, 0, 0, 0.15);
+  --border-radius: 16px;
+  --transition: 0.3s;
+}
+
+/* Reset y estilos base */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+  color: var(--text-light);
+  min-height: 100vh;
+  transition: background 0.5s, color 0.5s;
+}
+body.dark-mode {
+  background: linear-gradient(135deg, var(--color-secondary), var(--color-primary));
+  color: var(--text-light);
+}
+
+/* Wrapper general */
+.home-wrapper {
+  display: flex;
+  flex-direction: column;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* Top navigation */
+.top-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  background: rgba(255, 255, 255, 0.8);
+}
+.nav-logo {
+  height: 40px;
+}
+.nav-links a {
+  margin-left: 1.5rem;
+  text-decoration: none;
+  color: var(--color-secondary);
+  font-weight: 600;
+}
+.nav-links a:hover {
+  color: var(--color-primary);
+}
+.nav-right button {
+  margin-left: 1rem;
+  padding: 0.5rem 1.2rem;
+  border: none;
+  border-radius: var(--border-radius);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition);
+}
+.btn-login {
+  background: transparent;
+  color: var(--color-secondary);
+  border: 2px solid var(--color-secondary);
+}
+.btn-login:hover {
+  background: var(--color-secondary);
+  color: var(--text-light);
+}
+.btn-signup {
+  background: var(--color-primary);
+  color: var(--text-light);
+}
+.btn-signup:hover {
+  background: var(--color-secondary);
+}
+
+/* Hero */
+.hero-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4rem 2rem;
+  flex-wrap: wrap;
+}
+.hero-text {
+  flex: 1 1 400px;
+}
+.hero-text h1 {
+  font-size: 3rem;
+  color: var(--text-light);
+  margin-bottom: 1rem;
+}
+.hero-text p {
+  font-size: 1.25rem;
+  margin-bottom: 2rem;
+  color: var(--text-light);
+}
+.hero-buttons a {
+  margin-right: 1rem;
+  padding: 0.8rem 1.8rem;
+  border-radius: var(--border-radius);
+  text-decoration: none;
+  font-weight: 600;
+  transition: all var(--transition);
+}
+.btn-hero-signup {
+  background: var(--color-primary);
+  color: var(--text-light);
+}
+.btn-hero-business {
+  background: transparent;
+  color: var(--color-light, var(--text-light));
+  border: 2px solid var(--text-light);
+}
+.btn-hero-signup:hover {
+  background: var(--color-secondary);
+}
+.btn-hero-business:hover {
+  background: var(--text-light);
+  color: var(--color-secondary);
+}
+
+/* Hero visual (QR + mockup) */
+.hero-visual {
+  flex: 1 1 300px;
+  position: relative;
+}
+.hero-qr {
+  width: 180px;
+  margin-bottom: 2rem;
+}
+.hero-phone {
+  width: 250px;
+  position: absolute;
+  top: 20%;
+  right: 0;
+}
+
+/* Features sección */
+.features-section {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  padding: 2rem;
+  flex-wrap: wrap;
+}
+.feature-card {
+  background: var(--card-bg);
+  color: var(--text-dark);
+  border-radius: var(--border-radius);
+  padding: 2rem;
+  flex: 1 1 250px;
+  max-width: 300px;
+  box-shadow: 0 4px 12px var(--card-shadow);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+.feature-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 24px var(--card-shadow);
+}
+.feature-card h2 {
+  margin-bottom: 1rem;
+}
+.feature-card p {
+  line-height: 1.4;
+}
+
+/* Footer */
+.home-footer {
+  text-align: center;
+  padding: 1.5rem;
+  color: var(--text-light);
+  margin-top: auto;
+  border-top: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+/* Botón toggle modo oscuro */
+.dark-toggle {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  padding: 0.6rem 1rem;
+  border: none;
+  border-radius: var(--border-radius);
+  background: var(--color-secondary);
+  color: var(--text-light);
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  transition: background var(--transition), transform var(--transition);
+}
+.dark-toggle:hover {
+  transform: translateY(-4px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero-section {
+    flex-direction: column;
+    align-items: center;
+  }
+  .hero-visual {
+    margin-top: 2rem;
+    position: static;
+  }
+  .nav-links {
+    display: none;
+  }
+}
+/* Logo navbar redondeado */
+.nav-logo {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%; /* 🔵 ahora circular */
+  object-fit: cover;
+}
+
+/* Hero visual */
+.hero-visual {
+  flex: 1 1 300px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+/* Mockup celular */
+.phone-wrapper {
+  position: relative;
+  display: inline-block;
+}
+.hero-phone {
+  width: 260px;
+  display: block;
+}
+
+/* Logo dentro del celular */
+.phone-logo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90px;
+  height: 90px;
+  border-radius: 50%; /* 🔵 también circular */
+  background: white; /* opcional: fondo blanco para contraste */
+  padding: 8px;
+}
+/* Hero visual */
+.hero-visual {
+  flex: 1 1 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+/* Logo gigante en el hero */
+.hero-logo-big {
+  width: 220px;       /* tamaño grande */
+  height: 220px;
+  border-radius: 50%; /* circular */
+  object-fit: cover;
+  background: white;  /* fondo blanco para destacarlo */
+  padding: 12px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+}
